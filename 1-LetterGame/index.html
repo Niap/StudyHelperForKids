@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Letter Game</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+        <meta name="apple-touch-fullscreen" content="YES" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <style>
+            *{
+                margin:0px;
+                padding: 0px;
+            }
+            #body{
+                height: 100%;
+                width: 100%;
+                display: flex;
+                flex-direction:column;
+            }
+            #randomLetter{
+                font-size: 30rem;
+                text-align: center;
+            }
+            .space{
+                flex:1;
+            }
+        </style>
+    </head>
+    <body >
+        <div  id="body">
+            <div class="space"></div>
+            <div id="randomLetter"></div>
+            <div class="space"></div>
+        </div>
+        
+    </body>
+
+    <script>
+        const CHARCODE_A_LC = 97
+        const lowercaseAlphabet = new Array(26)
+                .fill(null)
+                .map((v, i) => String.fromCharCode(CHARCODE_A_LC + i))
+        var randomLetter = function(){
+            var randomIndex = Math.floor( Math.random() * 26);
+           return  lowercaseAlphabet[randomIndex].toUpperCase();
+        }
+        var onBodyClick = function(){
+            document.getElementById("randomLetter").innerHTML = randomLetter();
+        }
+        var info = navigator.userAgent;
+        if(info.indexOf("iPod")!=-1 || info.indexOf("iPad")!=-1 || info.indexOf("iPhone")!=-1 || info.indexOf("Android")!=-1){
+            document.getElementById("body").addEventListener("touchend",onBodyClick);
+        }else{
+            document.getElementById("body").addEventListener("click",onBodyClick);
+        }
+    </script>
+</html>
