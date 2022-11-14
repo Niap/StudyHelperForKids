@@ -43,7 +43,9 @@
            return  lowercaseAlphabet[randomIndex].toUpperCase();
         }
         var onBodyClick = function(){
-            document.getElementById("randomLetter").innerHTML = randomLetter()+randomLetter();
+            for( var i=0;i<4;i++ ){
+                document.getElementById("randomLetter").innerHTML = randomLetter();
+            }
         }
         var info = navigator.userAgent;
         if(info.indexOf("iPod")!=-1 || info.indexOf("iPad")!=-1 || info.indexOf("iPhone")!=-1 || info.indexOf("Android")!=-1){
