@@ -40,11 +40,11 @@
                 .map((v, i) => String.fromCharCode(CHARCODE_A_LC + i))
         var randomLetter = function(){
             var randomIndex = Math.floor( Math.random() * 26);
-           return  lowercaseAlphabet[randomIndex].toUpperCase();
+           return  lowercaseAlphabet[randomIndex].toLowerCase();
         }
         var onBodyClick = function(){
             var total = "";
-            for( var i=0;i<4;i++ ){
+            for( var i=0;i<1;i++ ){
                 total += randomLetter();
             }
             document.getElementById("randomLetter").innerHTML = total;
